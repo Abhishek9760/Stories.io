@@ -1,0 +1,104 @@
+.page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25vh var(--margin-left);
+    margin-bottom: 30vh;
+    scroll-snap-align: center;
+}
+
+.page h1 {
+    font-size: 3rem;
+    letter-spacing: 1.2px;
+    font-weight: 500;
+}
+
+.page h3 {
+    font-size: 2.1rem;
+    font-weight: 300;
+}
+
+.page p {
+    font-weight: 100;
+    max-width: 60%;
+    text-align: right;
+    font-size: 1.2rem;
+}
+
+img.responsive {
+    max-width: 30vw;
+}
+
+img.normal {
+    max-width: 40vw;
+}
+
+.left-content {
+    order: 1;
+    min-width: 30vw;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em
+}
+
+.left-content .row {
+    align-items: flex-start
+}
+
+.right-content {
+    order: 2
+}
+
+.right-content .row {
+    align-items: flex-end
+}
+
+@media screen and (max-width: 700px) {
+    .page {
+        flex-direction: column;
+        gap: 2.5em;
+        margin: 20vh 2em;
+        margin-bottom: 20vh
+    }
+
+    .page p {
+        text-align: center;
+    }
+
+    .page h3 {
+        font-size: 1.6rem;
+    } 
+
+    .page h1 {
+        text-align: center;
+        font-size: 2.6em
+    }
+
+    img.responsive {
+        max-width: 45vh;
+    }
+
+    img.normal {
+        max-width: 50vh;
+    }
+
+    .right-content {
+        order: 1
+    }
+
+    .left-content.inverse {
+        order: 1 !important
+    }
+
+    .left-content {
+        order: 2
+    }
+
+    .row {
+        align-items: center !important
+    }
+
+}

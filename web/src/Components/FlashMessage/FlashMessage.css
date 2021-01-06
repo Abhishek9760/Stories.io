@@ -1,0 +1,52 @@
+.flash {
+    text-align: center;
+    position: absolute;
+    top: 87%;
+    right: 5%;
+    padding: 0.4em 1em;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    font-size: 1.1rem;
+}
+
+.flash span {
+    cursor: pointer;
+    padding: 0 0.1em;
+    transition: background 150ms ease-in;
+    font-size: 1.3rem
+}
+
+.flash span:hover {
+    background-color: lightgrey;
+}
+
+.flash.error {
+    border-color: var(--color-error);
+    color: var(--color-error);
+}
+
+.flash.success {
+    border-color: var(--color-success);
+    color: var(--color-success)
+}
+
+.flash.warning {
+    border-color: var(--color-warning);
+    color: var(--color-warning)
+}
+
+.flash.dismiss {
+    animation: fadeOut forwards 250ms
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1
+    } to {
+        opacity: 0;
+        display: none;
+    }
+}
