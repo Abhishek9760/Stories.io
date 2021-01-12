@@ -1,0 +1,90 @@
+.story-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--color-black);
+    padding: 1.5em 3em;
+    margin: 5.5em 10em;
+    margin-bottom: 3em;
+    gap: 1em;
+}
+
+.story-container .title {
+    font-weight: 500;
+    font-size: 2.6rem;
+}
+
+.story-container .date {
+    font-weight: 300;
+    position: relative;
+}
+
+.story-container .date::after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 50%;
+    top: 140%;
+    left: 0;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3)
+}
+
+.story-container .story {
+    margin-top: 0.5em;
+    flex: 1;
+    max-height: 100%;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+.written-by {
+    text-align: right;
+    font-size: 1.05rem;
+    font-weight: 300;
+    margin-bottom: 1.5em;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.clap {
+    display: flex;
+    align-items: center;
+    flex: 0.8;
+}
+
+.clap-icon {
+    max-width: 2.8em;
+    cursor: pointer;
+    transition: all 150ms ease
+}
+
+.clap-icon:hover {
+    filter: brightness(60%)
+}
+
+@media screen and (max-width: 990px) {
+    .story-container {
+        margin: 5em 2em;
+        margin-bottom: 1em;
+        padding: 1em
+    }
+
+    .story-container .title {
+        font-size: 1.8rem;
+    }
+
+    .story-container .story {
+        text-align: left;
+    }
+
+    .story-container .story {
+        font-size: 18px;
+    }
+
+}

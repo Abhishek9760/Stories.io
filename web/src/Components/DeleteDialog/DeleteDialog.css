@@ -1,0 +1,58 @@
+.more {
+    backdrop-filter: none !important;
+}
+
+.delete-dialog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    min-width: 25em;
+    min-height: 15em;
+}
+
+.top {
+    background-color: var(--color-error);
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0.5em 1em;
+    justify-content: space-around;
+}
+
+.top div {
+    font-size: 1.2rem;
+    flex: 1
+}
+
+.top img {
+    width: 2em;
+    cursor: pointer;
+}
+
+.mid span {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.mid {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem
+}
+
+.delete-dialog .actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-around !important;
+    margin-bottom: 1em;
+}
+
+@media screen and (max-width: 990px) {
+    .delete-dialog {
+        min-width: 20em;
+    }
+}

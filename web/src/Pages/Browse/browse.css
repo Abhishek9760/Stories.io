@@ -1,0 +1,27 @@
+.container {
+    margin: var(--margin-vertical) var(--margin-left);
+    max-height: 85vh;
+    margin-top: 5.5em;
+    overflow-y: hidden;
+}
+
+.container h1 {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+@media screen and (max-width: 990px) {
+    .container {
+        margin: 5em 2em !important;
+        border: none;
+        padding: 0;
+    }
+
+    .container h1 {
+        margin-bottom: 0.5em;
+        margin-top: 0;
+        font-weight: 600;
+        font-size: 2.3rem;
+    }
+
+}

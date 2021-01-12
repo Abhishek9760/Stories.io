@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Julee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+
+:root {
+  --logo-font: 'Julee';
+  --color-white: #fff;
+  --color-black: #000;
+  --color-error: rgb(255, 62, 62);
+  --color-success: rgb(130, 182, 88);
+  --color-warning: rgb(255, 255, 100);
+  --color-fb: #4267b2;
+  --padding: 2.5em;
+  --def-font: 'Montserrat', sans-serif;
+  --margin-left: 10em;
+  --margin-vertical: 1em;
+  --resp-max-width: 990px;
+}
+
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#logo {
+  font-family: var(--logo-font);
+  font-size: calc(1.8rem + 1.1vw);
+}
+
+button {
+  background: var(--color-white);
+  padding: 0.6em 1em;
+  border: 2px solid var(--color-black);
+  font-size: 1.10rem;
+  font-weight: 500;
+  transition: all 250ms ease-in;
+  outline: none;
+}
+
+input[type=text], 
+input[type=email],
+input[type=password] {
+  border: 2px solid var(--color-black);
+  padding: 0.6em 1em;
+  font-size: 1.10rem;
+  transition: all 250ms ease-in;
+  outline: none
+}
+
+button:hover,
+button:focus {
+  background: var(--color-black);
+  color: white;
+  transform: scale(1.10);
+}
+
+input:hover,
+input:focus {
+  background: var(--color-black);
+  color: white;
+}
+
+.snap-scroll {
+  all: initial;
+  overflow-y: scroll;
+  display: block;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  max-height: 100vh;
+}
+
+.snap-scroll.disable {
+  overflow-y: hidden;
+}
+
+a.btn {
+  border: 2px solid var(--color-black);
+  padding: 0.6em 1em;
+  transition: all 150ms ease-in;
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+a.btn:hover,
+a.btn:focus {
+  transform: scale(1.05);
+  background-color: var(--color-black);
+  color: var(--color-white)
+}
+
+a.btn.edit {
+  border: 2px solid #4368b3;
+  color: #4368b3;
+}
+
+a.btn.edit:focus,
+a.btn.edit:hover {
+  background-color: #4368b3;
+  color: white;
+}
+
+a.btn.delete, 
+button.delete {
+  border-color: var(--color-error);
+  color: var(--color-error)
+}
+
+a.btn.delete:hover,
+a.btn.delete:focus,
+button.delete:hover,
+button.delete:focus {
+  background-color: var(--color-error) !important;
+  color: white !important;
+}
+
+@media screen and (max-width: 990px) {
+  button {
+    padding: 1em 2em;
+  }
+
+  input[type=text], 
+  input[type=email],
+  input[type=password] {
+    padding: 1em;
+    font-size: 1.25rem;
+  }
+
+  a.btn {
+    padding: 1em 2em;
+  }
+
+} 

@@ -1,0 +1,22 @@
+.edit-page {
+    display: grid;
+    place-content: center;
+    height: 100%;
+    width: 100%;
+    margin-top: 5.5em;
+}
+
+.edit-page label {
+    color: #000
+}
+
+.edit-page .btn {
+    min-width: 6em;
+    margin-bottom: 10px;
+}
+
+.edit-page .actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+}
