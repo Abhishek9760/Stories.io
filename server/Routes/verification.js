@@ -4,23 +4,34 @@ const jsonParser = bodyParser.json();
 const User = require('../models/user')
 const Token = require('../models/token')
 const mailer = require('../utils/Mail.js')
+const crypto = require('crypto');
 
 const router = express.Router();
 
 //Mail-confirmation get req
 router.get('/confirmation/:token', jsonParser, (req, res, next) => {
+    let error;
     Token.findOne({ token: req.params.token }, (err, token) => {
-        if (!token) return res.status(400).send({ error: 'Unable to find a valid token,. token may have expired..' })
+        if (!token) {
+            error = 'Unable to find a valid token,. token may have expired..';
+            return res.status(400).render('Verification', { err: error });
+        } 
 
         User.findOne({ _id: token._userId, email: req.query.email }, (err, user) => {
-            if (!user) return res.status(400).send({ err: 'Unable to find a user for this token.' })
+            if (!user) {
+                error = 'Unable to find a user for this token.';
+                return res.status(400).render('Verification', { err: error })
+            } 
 
-            if (user.isVerified) return res.status(400).send({err: 'User Already verified'})
+            if (user.isVerified) {
+                error = 'User Already verified';
+                return res.status(400).render('Verification', {err: error})
+            } 
 
             user.isVerified = true;
             user.save(err => {
-                if (err) return res.status(500).send({err: err.message})
-                res.status(200).send("The account has been verified")
+                if (err) return res.status(500).render('Verification', { err: err.message })
+                res.status(200).render('Verification', {err: ''})
             })
         })
     })
@@ -28,7 +39,7 @@ router.get('/confirmation/:token', jsonParser, (req, res, next) => {
 
 //Resend Mail by generating new token
 router.post('/resend-token', jsonParser, (req, res, next) => {
-    User.findOne({ email: req.body.email }, (err, user) => {
+    User.findOne({ username: req.body.username }, (err, user) => {
         if (!user) return res.status(400).send({ error: 'Unable to find the user' });
 
         if (user.isVerified) return res.status(400).send({ error: 'Email already verified' });

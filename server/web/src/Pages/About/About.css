@@ -14,12 +14,6 @@
     background-color: rgb(88, 88, 88);
 }
 
-.about-container .name {
-    font-family: 'Julee';
-    font-size: 1.8rem;
-    margin-right: 8px;
-}
-
 .stack {
     font-size: 1.3rem
 }

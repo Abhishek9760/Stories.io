@@ -73,6 +73,23 @@ input:focus {
   overflow-y: hidden;
 }
 
+.resend-mail {
+  text-decoration: none;
+  color: black;
+  margin-top: 1em;
+  font-size: 1.05em;
+  transition: color 150ms ease;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+
+.resend-mail:hover {
+  background-color: transparent;
+  color: rgb(73, 73, 73)
+}
+
 a.btn {
   border: 2px solid var(--color-black);
   padding: 0.6em 1em;

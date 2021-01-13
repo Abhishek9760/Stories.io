@@ -11,6 +11,7 @@ const cors = require('cors');
 
 app.use(express.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
+app.set('view engine', 'ejs'); 
 
 app.use((req, res, next) => {
     const allowedOrigins = ['http://localhost:3000', 'http://localhost:4000', 'http://127.0.0.1:3000'];
@@ -25,7 +26,7 @@ app.use((req, res, next) => {
     return next();
   });
 
-mongoose.connect('mongodb://localhost/Stories_io', {
+mongoose.connect(process.env.MONGOOSE_NET_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

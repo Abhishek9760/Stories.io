@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Account Verified </title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        .container {
+            display: grid;
+            place-content: center;
+            height: 90vh;
+            gap: 2em;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        span {
+            text-align: center;
+            font-size: 1.8em
+        }
+
+        .msg  {
+            font-size: 1.3em;
+            padding: 1em;
+            outline: 2px solid black;
+        }
+
+        .verified {
+            font-size: 1.1em;
+            color: rgb(129, 199, 129);
+            font-weight: 600;
+            letter-spacing: 1.1px;
+        }
+
+        .error {
+            font-size: 1.2em;
+            color: rgb(199, 80, 80);
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <span class="msg">
+            <% if (err) { %>
+                <span class="error">
+                    <%= err %>
+                </span>
+            <%} else { %>
+                Your Account has been 
+                <span class="verified">
+                    verified..
+                </span>
+            </span>
+            <span>Welcome.. 🙂</span> 
+            <% } %>
+    </div>
+</body>
+</html>

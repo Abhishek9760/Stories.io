@@ -19,7 +19,7 @@ router.post('/login', jsonParser, async (req, res) => {
             user.comparePassword(req.body.password, (err, isMatch) => {
 
                 if (!isMatch) return res.status(401).send({ error: 'Incorrect password'})
-                if (!user.isVerified) return res.status(401).send({ error: 'Your account has not been verified.' })
+                if (!user.isVerified) return res.status(401).send({ notVerified: 'Your account has not been verified.' })
                 res.send({ user: user })
             })
         }

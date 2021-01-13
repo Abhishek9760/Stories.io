@@ -8,7 +8,6 @@ function About() {
         <div className="container">
            <div className="contents">
                 <div className="about-container">
-                    <span className="name">Stories.io</span> 
                     made using the 
                     <span className="stack"> MERN </span> stack
                     <br/> with 

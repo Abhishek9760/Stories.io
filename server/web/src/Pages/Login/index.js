@@ -2,15 +2,18 @@ import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import './Login.css'
 import FlashMessage from '../../Components/FlashMessage'
+import Loading from '../../Components/Loading'
 
 function Login ( props ) {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [ notVerified, setNotVerified ] = useState(false);
     const [loading, setLoading] = useState(false);
     const ROOT_URL = 'http://localhost:4000/user';
     const isLoggedIn = localStorage.getItem('isLoggedIn')
+    const [ success, setSuccess ] = useState('');
 
     useEffect(() => {
         if (isLoggedIn)
@@ -18,9 +21,31 @@ function Login ( props ) {
 
         setTimeout(() => {
             setError('')
+            setSuccess('')
         }, 3000)
 
-    }, [error, isLoggedIn, props.history])
+    }, [error, isLoggedIn, props.history, success])
+
+    async function handleResendMail () {
+        const url = 'http://localhost:4000/resend-token';
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({username: username}),
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }})
+            .then(res => res.json())
+            .then(data => {
+                if (data.error) {
+                    setError(data.error)
+                }
+                if (data.success) {
+                    setSuccess(data.success)                
+                }
+            })
+        
+    }
 
     async function handleSubmit (e) {
 
@@ -45,6 +70,12 @@ function Login ( props ) {
         fetch(`${ROOT_URL}/login`, requestOptions)
             .then(res => res.json())
             .then(data => {
+                if (data.notVerified) {
+                    setLoading(false)
+                    setNotVerified(true)
+                    setError(data.notVerified)
+                }
+
                 if(data.error) {
                     setLoading(false)
                     setError(data.error)
@@ -60,7 +91,6 @@ function Login ( props ) {
                 setError('Internal server error')
                 setLoading(false)
             })
-
     }
 
     return (
@@ -92,10 +122,26 @@ function Login ( props ) {
                     />
                 </div>
                 <button disabled={loading} onClick={(e) => {handleSubmit(e)}} >Login</button>
+                {notVerified &&
+                    <input 
+                        className="resend-mail" 
+                        type="button" 
+                        value="Resend mail ?"
+                        onClick={handleResendMail}
+                        />
+                }
             </div>
+
+            {loading && <div className="loading-bg"><Loading /></div>}
+
             {error && 
                 <FlashMessage type='err' >
                     {error}
+                </FlashMessage>
+            }
+            {success && 
+                <FlashMessage type="success" >
+                    {success}
                 </FlashMessage>
             }
         </>
