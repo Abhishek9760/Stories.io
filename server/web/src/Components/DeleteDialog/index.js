@@ -17,7 +17,7 @@ function DeleteDialog({ storyName, id, setshowDelete, setError }) {
 
     function handleOnDelete () {
         setIsDeleting(true)
-        const url = `http://localhost:4000/story/delete/${id}?_method=DELETE`
+        const url = `/api/story/delete/${id}?_method=DELETE`
 
         const requestOptions = {
             method: 'POST',

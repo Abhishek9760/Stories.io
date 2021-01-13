@@ -32,7 +32,7 @@ function EditStory(props) {
             credentials: 'include'
         }
         
-        fetch(`http://localhost:4000/story/edit/${story._id}`, requestOptions)
+        fetch(`/api/story/edit/${story._id}`, requestOptions)
             .then(res => res.json())
             .then(data => {
                 if (data.error) {

@@ -13,7 +13,7 @@ function YourStories(props) {
     const username = props.location.username
 
     function fetchStories () {
-        fetch(`http://localhost:4000/story?name=${username}`)
+        fetch(`/api/story?name=${username}`)
             .then(response => response.json())
             .then(data => {
                 if (!data.result) setError("Error Fetching Stories")

@@ -12,7 +12,7 @@ const Browse = ( props ) => {
     const [ loading, setLoading ] = useState(true)
 
     const fetchStories = async () => {
-        await fetch('http://localhost:4000/story')
+        await fetch('/api/story')
             .then(response => response.json())
             .then(data => {
                 if (!data.result) setError("Error Fetching Stories")

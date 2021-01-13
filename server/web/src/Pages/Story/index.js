@@ -24,7 +24,7 @@ function Story ( props ) {
         
         document.querySelector('#root').classList.remove('disable')
         
-        fetch(`http://localhost:4000/story/${slug}`)
+        fetch(`/api/story/${slug}`)
             .then(res => res.json())
             .then(data => {
                 if (!data.story) {

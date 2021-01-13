@@ -18,7 +18,7 @@ function CommentBox({ story, currentUser }) {
         if (text.length <= 0) return
 
         await fetch(
-            `http://localhost:4000/story/comment/${story._id}`,
+            `/api/story/comment/${story._id}`,
             {
                 method: 'POST',
                 body: JSON.stringify({

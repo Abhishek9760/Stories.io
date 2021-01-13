@@ -11,7 +11,7 @@ function Login ( props ) {
     const [error, setError] = useState('');
     const [ notVerified, setNotVerified ] = useState(false);
     const [loading, setLoading] = useState(false);
-    const ROOT_URL = 'http://localhost:4000/user';
+    const ROOT_URL = '/api/user';
     const isLoggedIn = localStorage.getItem('isLoggedIn')
     const [ success, setSuccess ] = useState('');
 
@@ -27,7 +27,7 @@ function Login ( props ) {
     }, [error, isLoggedIn, props.history, success])
 
     async function handleResendMail () {
-        const url = 'http://localhost:4000/resend-token';
+        const url = '/api/resend-token';
         fetch(url, {
             method: 'POST',
             body: JSON.stringify({username: username}),

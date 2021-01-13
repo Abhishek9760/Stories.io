@@ -10,7 +10,7 @@ function ClapBtn({clap, username, id}) {
     function handleOnClick () {
         if(username === null) return
 
-        const url = `http://localhost:4000/story/clap/${id}`
+        const url = `/api/story/clap/${id}`
         const requestOptions = {
             method: 'POST',
             body: JSON.stringify({

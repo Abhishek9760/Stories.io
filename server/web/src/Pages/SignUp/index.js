@@ -42,7 +42,7 @@ function SignUp (props) {
             credentials: 'include'
         };
 
-        fetch('http://localhost:4000/user/sign-in', requestOptions)
+        fetch('/api/user/sign-in', requestOptions)
             .then(res => res.json())
             .then(data => {
                 if (data.error) {

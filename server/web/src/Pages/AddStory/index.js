@@ -17,7 +17,7 @@ function Add(props) {
     const addBtn = useRef(null)
     const addBtnImg = useRef(null)
 
-    const url = 'http://localhost:4000/story/new'
+    const url = '/api/story/new'
 
     function hide () {
         addPage.current.classList.add('disable')
