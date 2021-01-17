@@ -11,6 +11,7 @@
     min-width: 60%;
     padding: 1em;
     gap: 1em;
+    background-color: var(--bg)
 }
 
 .error img {

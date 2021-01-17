@@ -1,4 +1,4 @@
-import React,{ useRef } from 'react'
+import React,{ useRef, useEffect, useState } from 'react'
 import './UserAvatar.css'
 import { Link, useHistory } from 'react-router-dom'
 
@@ -6,6 +6,7 @@ function UserAvatar({ user, setUser, setIsLoggedIn }) {
 
     const userOptions = useRef(null);
     const history = useHistory();
+    const [ theme, setTheme ] = useState('');
 
     const toggleUserOptions = () => {
         if (userOptions.current === null) return
@@ -27,6 +28,24 @@ function UserAvatar({ user, setUser, setIsLoggedIn }) {
         window.location.reload();
     }
 
+    function changeThemeWhite () {
+        document.querySelector('body').classList.remove('dark');
+        document.querySelector('body').classList.add('light')
+        setTheme('light')
+        localStorage.setItem('currentTheme', 'light')
+    }
+
+    function changeThemeBlack () {
+        document.querySelector('body').classList.remove('light')
+        document.querySelector('body').classList.add('dark');
+        setTheme('dark')
+        localStorage.setItem('currentTheme', 'dark')
+    }
+
+    useEffect(() => {
+        setTheme(localStorage.getItem('currentTheme'))
+    }, [])
+
     return (
         <div className="user-avatar">
             <div 
@@ -41,8 +60,9 @@ function UserAvatar({ user, setUser, setIsLoggedIn }) {
             </div>
             <div className="user-options hide" ref={userOptions}>
                 <div className="theme-selector">
-                    <div className="theme-btn white active"></div>
-                    <div className="theme-btn black"></div>
+                    <div className={theme === 'light' ? 'theme-btn white active' : 'theme-btn white'} 
+                        onClick={changeThemeWhite} />
+                    <div className={theme === 'dark' ? 'theme-btn black active' : 'theme-btn black'}  onClick={changeThemeBlack}></div>
                 </div>
                 <div className="option" onClick={hide()}>
                     <Link 

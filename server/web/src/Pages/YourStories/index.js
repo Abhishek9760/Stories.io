@@ -12,7 +12,13 @@ function YourStories(props) {
     const [ loading, setLoading ] = useState(true)
     const username = props.location.username
 
-    function fetchStories () {
+    useEffect(() => {
+        if (!username) {
+            props.history.push('/browse')
+            return
+        }
+        document.getElementById('root').classList.add('disable');
+        
         fetch(`/api/story?name=${username}`)
             .then(response => response.json())
             .then(data => {
@@ -26,15 +32,6 @@ function YourStories(props) {
                 setLoading(false)
                 setError("Unable to fetch stories")
             })
-    }
-
-    useEffect(() => {
-        if (!username) {
-            props.history.push('/browse')
-            return
-        }
-        document.getElementById('root').classList.add('disable');
-        fetchStories()
     }, [props.history, username])
 
     return (

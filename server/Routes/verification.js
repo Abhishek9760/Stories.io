@@ -10,6 +10,7 @@ const router = express.Router();
 
 //Mail-confirmation get req
 router.get('/confirmation/:token', jsonParser, (req, res, next) => {
+    console.log('confirming')
     let error;
     Token.findOne({ token: req.params.token }, (err, token) => {
         if (!token) {
@@ -31,6 +32,7 @@ router.get('/confirmation/:token', jsonParser, (req, res, next) => {
             user.isVerified = true;
             user.save(err => {
                 if (err) return res.status(500).render('Verification', { err: err.message })
+                console.log('confirmed')
                 res.status(200).render('Verification', {err: ''})
             })
         })

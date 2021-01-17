@@ -12,27 +12,27 @@ function About() {
                     <span className="stack"> MERN </span> stack
                     <br/> with 
                     <span className="heart"> ❤ </span>
-                    <ul className="links">
-                        <li className="link">
-                            <a 
-                                href="https://www.instagram.com/ar_t__z_studios/"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                <img src={instaIcon} alt="i"/>
-                            </a>
-                        </li>
-                        <li className="link">
-                            <a href="mailto:stories.io@yahoo.com">
-                                <img src={mailIcon} alt="m"/>  
-                            </a>
-                        </li>
-                    </ul>
                 </div>
                 <a className="btn-bug" href="mailto:stories.io@yahoo.com">
                     Found bug ?
                 </a>
             </div> 
+            <ul className="links">
+                <li className="link">
+                    <a 
+                        href="https://www.instagram.com/ar_t__z_studios/"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img src={instaIcon} alt="i"/>
+                    </a>
+                </li>
+                <li className="link">
+                    <a href="mailto:stories.io@yahoo.com">
+                        <img src={mailIcon} alt="m"/>  
+                    </a>
+                </li>
+            </ul>
         </div>
     )
 }

@@ -6,9 +6,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fff;
+    background-color: var(--bg);
     min-width: 25em;
     min-height: 15em;
+    color: var(--text);
 }
 
 .top {

@@ -5,37 +5,6 @@ const jsonParser = bodyParser.json();
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
-
-    const username = req.query.name;
-    const filter = username === undefined
-                            ? {} 
-                            : { writtenBy: username }
-
-    try {
-        await Story.find(filter, (err, result) => {
-            if (err) res.send(err)
-            else res.send({
-                result: result
-            })
-        })
-    } catch (err) {
-        console.log(err)
-    }
-})
-
-router.get('/:slug', async (req, res) => {
-    try {
-        const story = await Story.findOne({
-            slug: req.params.slug
-        })
-        res.json({
-            story: story
-        })
-    } catch (err) {
-        res.sendStatus(500)
-    }
-})
 
 router.post('/comment/:id', jsonParser, async (req, res) => {
     const id = req.params.id;
@@ -131,6 +100,38 @@ router.post('/edit/:id', jsonParser, async (req, res) => {
         res.json({
             error: err
         })
+    }
+})
+
+router.get('/:slug', async (req, res) => {
+    try {
+        const story = await Story.findOne({
+            slug: req.params.slug
+        })
+        res.json({
+            story: story
+        })
+    } catch (err) {
+        res.sendStatus(500)
+    }
+})
+
+router.get('/', async (req, res) => {
+        
+    const username = req.query.name;
+    const filter = username === undefined
+                            ? {} 
+                            : { writtenBy: username }
+
+    try {
+        await Story.find(filter, (err, result) => {
+            if (err) res.send(err)
+            else res.send({
+                result: result
+            })
+        })
+    } catch (err) {
+        console.log(err)
     }
 })
 

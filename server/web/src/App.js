@@ -14,6 +14,15 @@ function App() {
 
   
   useEffect(() => {
+
+    if (localStorage.getItem('currentTheme') === null) {
+      document.querySelector('body').classList.add('light') 
+      localStorage.setItem('currentTheme', 'light')
+    }
+    else document.querySelector('body').classList.add(
+      localStorage.getItem('currentTheme')
+    )
+
     document.querySelector('#root').classList.add('snap-scroll')
     try {
       setIsLoggedIn(localStorage.getItem('isLoggedIn'))

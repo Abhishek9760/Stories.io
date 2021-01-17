@@ -2,10 +2,11 @@
     margin: 1em 14em;
     padding: 1em 3em;
     min-height: 30vh;
-    border: 2px solid var(--color-black);
+    border: 2px solid var(--border-color);
     display: flex;
     flex-direction: column;
     gap: 1em;
+    color: var(--text)
 }
 
 .comment-container h3 {
@@ -32,7 +33,7 @@
 }
 
 .comment {
-    border: 1px solid var(--color-black);
+    border: 1px solid var(--border-color);
     padding: 0.5em 1em;
     display: flex;
     justify-content: space-between;
@@ -46,7 +47,7 @@
 
 @media screen and (max-width: 990px) {
     .comment-container {
-        margin: 2em;
+        margin: 2em 1em;
         padding: 1em;
     } 
 

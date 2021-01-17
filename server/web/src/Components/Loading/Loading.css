@@ -16,7 +16,7 @@
 .loading div {
     width: 50%;
     height: 50%;
-    background: #000;
+    background: var(--color-black);
     position: absolute;
     top: 0;
     transform-origin: right bottom;

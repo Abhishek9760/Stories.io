@@ -7,13 +7,17 @@
 }
 
 .story-list .container {
-    border: 2px solid var(--color-black);
+    border: 2px solid var(--border-color);
     padding: 1.5em 3em;
     margin: 1em 0;
     display: flex;
     flex-direction: column;
     gap: 1em;
     min-height: 150px;
+}
+
+.story-list .container .story {
+    max-height: 15vh;
 }
 
 .head {
@@ -33,7 +37,6 @@
 }
 
 .story-list .container .story {
-    height: 80px !important;
     overflow: hidden;
 }
 

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Julee&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
 
+
 :root {
   --logo-font: 'Julee';
   --color-white: #fff;
@@ -14,12 +15,34 @@
   --margin-left: 10em;
   --margin-vertical: 1em;
   --resp-max-width: 990px;
+  --blur-strength: 1px;
+  --blue: #0084a5;
+  --gray0: #f8f8f8;
+  --gray5: #24282f;
+  --gray6: #12181b;
+  --purple: #d8a4eb;
+}
+
+.light {
+  --bg: var(--gray0);
+  --text: var(--gray6);
+  --border-color: var(--blue);
+  --nav: rgba(255, 255, 255, 0.8);
+}
+
+.dark {
+  --bg: var(--gray5);
+  --text: var(--gray0);
+  --border-color: var(--purple);
+  --nav: #12181b;
 }
 
 *, *::before, *::after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-size: 17.6px
 }
 
 #logo {
@@ -27,37 +50,30 @@
   font-size: calc(1.8rem + 1.1vw);
 }
 
-button {
-  background: var(--color-white);
+button, input[type=text], 
+input[type=email],
+input[type=password] {
+  background: var(--bg);
   padding: 0.6em 1em;
-  border: 2px solid var(--color-black);
+  border: 2px solid var(--border-color);
   font-size: 1.10rem;
   font-weight: 500;
   transition: all 250ms ease-in;
   outline: none;
-}
-
-input[type=text], 
-input[type=email],
-input[type=password] {
-  border: 2px solid var(--color-black);
-  padding: 0.6em 1em;
-  font-size: 1.10rem;
-  transition: all 250ms ease-in;
-  outline: none
+  color: var(--text)
 }
 
 button:hover,
 button:focus {
-  background: var(--color-black);
-  color: white;
+  background: var(--border-color);
   transform: scale(1.10);
 }
 
-input:hover,
-input:focus {
-  background: var(--color-black);
-  color: white;
+#root {
+  background-color: var(--bg);
+  color: var(--text);
+  border-color: var(--border-color);
+  transition: background 500ms ease-in-out, color 1000ms ease-in-out;
 }
 
 .snap-scroll {
@@ -75,13 +91,13 @@ input:focus {
 
 .resend-mail {
   text-decoration: none;
-  color: black;
+  color: var(--text);
   margin-top: 1em;
   font-size: 1.05em;
   transition: color 150ms ease;
   border: none;
   outline: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--text);
   cursor: pointer;
 }
 
@@ -91,18 +107,19 @@ input:focus {
 }
 
 a.btn {
-  border: 2px solid var(--color-black);
+  border: 2px solid var(--border-color);
   padding: 0.6em 1em;
+  font-size: 1.10em;
   transition: all 150ms ease-in;
   text-decoration: none;
-  color: var(--color-black);
+  color: var(--text);
 }
 
 a.btn:hover,
 a.btn:focus {
   transform: scale(1.05);
-  background-color: var(--color-black);
-  color: var(--color-white)
+  background-color: var(--border-color);
+  color: var(--text)
 }
 
 a.btn.edit {

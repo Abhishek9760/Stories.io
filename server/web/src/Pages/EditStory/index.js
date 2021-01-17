@@ -55,9 +55,15 @@ function EditStory(props) {
             props.history.push('/browse')
         }
 
+        document.querySelector('.add-btn').classList.add('disable')
+
         setTimeout(() => {
             setError('')    
         }, 3000);
+
+        return (() => {
+            document.querySelector('.add-btn').classList.remove('disable')
+        })
 
     }, [props.history, story])
 

@@ -11,10 +11,18 @@ const Browse = ( props ) => {
     const [ error, setError ] = useState(null) 
     const [ loading, setLoading ] = useState(true)
 
-    const fetchStories = async () => {
-        await fetch('/api/story')
+    useEffect(() => {
+        document.getElementById('root').classList.add('disable');
+        fetch('/api/story', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
             .then(response => response.json())
             .then(data => {
+                console.log(data)
                 if (!data.result) setError("Error Fetching Stories")
                 else {
                     setStories(data.result)
@@ -25,11 +33,7 @@ const Browse = ( props ) => {
                 setLoading(false)
                 setError("Unable to fetch stories")
             })
-    }
-
-    useEffect(() => {
-        document.getElementById('root').classList.add('disable');
-        fetchStories()
+        console.log('fetched')
     }, [])
 
 

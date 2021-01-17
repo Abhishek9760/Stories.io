@@ -1,6 +1,7 @@
 .container {
     margin: var(--margin-vertical) var(--margin-left);
-    max-height: 85vh;
+    min-height: 85vh;
+    
     margin-top: 5.5em;
     overflow-y: hidden;
 }
@@ -12,7 +13,7 @@
 
 @media screen and (max-width: 990px) {
     .container {
-        margin: 5em 2em !important;
+        margin: 5em 1em !important;
         border: none;
         padding: 0;
     }

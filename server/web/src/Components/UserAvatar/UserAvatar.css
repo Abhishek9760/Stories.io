@@ -1,7 +1,7 @@
 
 .user-avatar {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: var(--text);
+    color: var(--bg);
     height: 3em;
     width: 3em;
     border-radius: 100px;
@@ -27,7 +27,6 @@
 .user-options {
     position: absolute;
     top: 95%;
-    background-color: var(--color-black);
     min-height: 8.5em;
     min-width: 10em;
     display: flex;
@@ -85,6 +84,7 @@
     width: 100%;
     text-align: center;
     cursor: pointer;
+    color: white;
 }
 
 .option a {

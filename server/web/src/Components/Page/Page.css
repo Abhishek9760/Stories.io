@@ -5,6 +5,9 @@
     margin: 25vh var(--margin-left);
     margin-bottom: 30vh;
     scroll-snap-align: center;
+    background-color: var(--bg);
+    color: var(--text);
+    transition: background-color 500ms ease-in-out, color 1000ms ease-in-out;
 }
 
 .page h1 {

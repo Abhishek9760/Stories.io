@@ -7,6 +7,7 @@ import Error from '../../Components/Error'
 import CommentBox from '../../Components/CommentBox'
 import ClapBtn from '../../Components/ClapBtn'
 import DeleteDialog from '../../Components/DeleteDialog'
+import './Content.css'
 
 function Story ( props ) {
 
@@ -23,11 +24,10 @@ function Story ( props ) {
     useEffect(() => {
         
         document.querySelector('#root').classList.remove('disable')
-        
         fetch(`/api/story/${slug}`)
-            .then(res => res.json())
-            .then(data => {
-                if (!data.story) {
+        .then(res => res.json())
+        .then(data => {
+            if (!data.story) {
                     setLoading(false)
                     setError('Unable to find the story')
                 }
@@ -40,7 +40,7 @@ function Story ( props ) {
                 setLoading(false)
                 setError('Error fetching the story')
             })
-            
+
     }, [slug])
 
     return (

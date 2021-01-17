@@ -8,6 +8,7 @@ import PageNotFound from '../Pages/PageNotFound'
 import EditStory from '../Pages/EditStory'
 import YourStories from '../Pages/YourStories'
 import About from '../Pages/About'
+import Easter from '../Pages/Easter'
 
 const routes = [
     {
@@ -52,6 +53,11 @@ const routes = [
         path: '/story/edit/:slug',
         isPrivate: true,
     },
+    {
+        component: Easter,
+        path: '/easter/at_stories_io',
+        isPrivate: true
+    },  
     {
         component: PageNotFound,
         path: '/*',
